@@ -1,0 +1,82 @@
+[
+  {
+    "question": "What is the core idea behind Retrieval-Augmented Generation (RAG)?",
+    "ground_truth": "RAG combines a retrieval component that fetches relevant documents from a knowledge source with a generative language model that uses those documents as context to produce grounded, knowledge-intensive answers."
+  },
+  {
+    "question": "How does Self-RAG differ from standard RAG?",
+    "ground_truth": "Self-RAG trains the language model to adaptively retrieve passages on demand and to critique its own outputs using special reflection tokens, deciding when retrieval is needed and whether the generated output is supported by evidence."
+  },
+  {
+    "question": "What problem does HyDE solve in dense retrieval?",
+    "ground_truth": "HyDE addresses the mismatch between query and document distributions by generating a hypothetical document from the query using an LLM, then using the embedding of that hypothetical document to search the index, improving zero-shot retrieval without relevance labels."
+  },
+  {
+    "question": "What are the four key metrics in RAGAS evaluation?",
+    "ground_truth": "RAGAS evaluates RAG pipelines using faithfulness (is the answer grounded in the context), answer relevancy (is the answer relevant to the question), context precision (is the retrieved context precise), and context recall (does the context contain the ground truth information)."
+  },
+  {
+    "question": "What is the ReAct framework and how does it work?",
+    "ground_truth": "ReAct interleaves reasoning traces and action steps in language models, allowing them to generate verbal reasoning about what to do next and then execute actions like search or lookup, synergizing thinking and acting to solve tasks more reliably."
+  },
+  {
+    "question": "How does Chain-of-Thought prompting improve LLM reasoning?",
+    "ground_truth": "Chain-of-Thought prompting provides the model with a series of intermediate reasoning steps as few-shot examples, which elicits the model to produce similar step-by-step reasoning before arriving at a final answer, significantly improving performance on arithmetic, commonsense, and symbolic reasoning tasks."
+  },
+  {
+    "question": "What is Toolformer and how does it learn to use tools?",
+    "ground_truth": "Toolformer is a model trained to decide which APIs to call, when to call them, and how to incorporate the results into text generation. It uses a self-supervised approach where the model annotates its own training data with API calls and filters them based on whether they help predict future tokens."
+  },
+  {
+    "question": "What is the key architectural innovation in the Transformer model?",
+    "ground_truth": "The Transformer replaces recurrence and convolution with a self-attention mechanism that allows each token in the sequence to directly attend to every other token, enabling parallelisation and capturing long-range dependencies more effectively."
+  },
+  {
+    "question": "What are the main safety and alignment techniques used in Llama 2?",
+    "ground_truth": "Llama 2 uses supervised fine-tuning followed by reinforcement learning from human feedback (RLHF), specifically rejection sampling and proximal policy optimization, along with red-teaming and safety-specific RLHF reward models to improve helpfulness and reduce harmful outputs."
+  },
+  {
+    "question": "What makes Mistral 7B efficient compared to larger models?",
+    "ground_truth": "Mistral 7B uses grouped-query attention to speed up inference and reduce memory requirements, and sliding window attention to handle longer sequences efficiently, allowing it to outperform larger models on many benchmarks despite having fewer parameters."
+  },
+  {
+    "question": "What is the purpose of the MTEB benchmark?",
+    "ground_truth": "MTEB provides a massive benchmark for evaluating text embedding models across diverse tasks including classification, clustering, pair classification, reranking, retrieval, semantic textual similarity, and summarization, enabling fair comparison of embedding models."
+  },
+  {
+    "question": "What is GPT-3's approach to few-shot learning?",
+    "ground_truth": "GPT-3 performs few-shot learning purely through in-context learning, where the model is given a task description and a few examples of input-output pairs in the prompt at inference time, without any gradient updates or fine-tuning."
+  },
+  {
+    "question": "What is the difference between sparse and dense retrieval?",
+    "ground_truth": "Sparse retrieval uses term-based methods like BM25 where documents are represented as sparse vectors of word counts or TF-IDF weights. Dense retrieval uses neural encoders to represent queries and documents as dense continuous vectors in a shared embedding space, enabling semantic similarity matching."
+  },
+  {
+    "question": "How does maximal marginal relevance (MMR) improve retrieval?",
+    "ground_truth": "MMR balances relevance and diversity in retrieval by iteratively selecting documents that are highly relevant to the query while being dissimilar to already selected documents, reducing redundancy in the retrieved context."
+  },
+  {
+    "question": "What is the role of the system prompt in LLM-based applications?",
+    "ground_truth": "The system prompt provides persistent instructions, persona, and constraints to the language model at the start of a conversation, shaping its behavior, tone, and output format for the entire interaction without being part of the user turn."
+  },
+  {
+    "question": "What is context window and why does it matter for RAG?",
+    "ground_truth": "The context window is the maximum number of tokens an LLM can process in a single call. For RAG it matters because retrieved chunks must fit within this window alongside the question and instructions; chunking strategy must balance retrieval granularity with context window limits."
+  },
+  {
+    "question": "What is hallucination in language models?",
+    "ground_truth": "Hallucination refers to the tendency of language models to generate confident but factually incorrect or unsupported statements that are not grounded in the provided context or verifiable knowledge, a key challenge that RAG is designed to mitigate."
+  },
+  {
+    "question": "What is the difference between faithfulness and answer relevancy in RAGAS?",
+    "ground_truth": "Faithfulness measures whether all claims in the generated answer are supported by the retrieved context, detecting hallucination. Answer relevancy measures whether the answer actually addresses the question asked, detecting incomplete or off-topic responses. Both are needed for a complete quality assessment."
+  },
+  {
+    "question": "Why is chunking strategy important in RAG pipelines?",
+    "ground_truth": "Chunking determines the granularity of indexed text units. Chunks that are too large may include irrelevant content and hit context limits; chunks that are too small may lack sufficient context for the LLM to generate a good answer. Overlap between chunks helps preserve context across boundaries."
+  },
+  {
+    "question": "What is embedding normalization and why is it used?",
+    "ground_truth": "Embedding normalization scales each vector to unit length, which ensures that cosine similarity between vectors equals their dot product. This makes similarity comparisons consistent regardless of the original magnitude of the embeddings, improving retrieval accuracy."
+  }
+]

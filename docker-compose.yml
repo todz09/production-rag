@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  rag-api:
+    build: .
+    container_name: p5-rag-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data          # persist ChromaDB + papers across rebuilds
+      - ./eval:/app/eval          # persist evaluation results
+    environment:
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      - LANGCHAIN_API_KEY=${LANGCHAIN_API_KEY}
+      - LANGCHAIN_TRACING_V2=true
+      - LANGCHAIN_PROJECT=p5-production-rag
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
