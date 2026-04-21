@@ -140,8 +140,8 @@ p5-production-rag/
 ### 1. Clone and create virtual environment
 
 ```bash
-git clone https://github.com/Vedant-1404/p5-production-rag.git
-cd p5-production-rag
+git clone https://github.com/todz09/production-rag.git
+cd production-rag
 python3 -m venv venv
 source venv/bin/activate
 ```
